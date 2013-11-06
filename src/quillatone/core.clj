@@ -3,9 +3,7 @@
    [quil.core :as q]
    [overtone.live :refer :all]
     [overtone.inst.drum :as drum]
-    [overtone.inst.synth :as s]
-    [overtone.inst.sampled-piano :as p]
-    ))
+    [overtone.inst.synth :as s]))
 
 
 (def num 10)
@@ -27,7 +25,7 @@
 
 (defn capture-click []
   (let [[x y]  @(q/state :mouse-position)]
-    (p/sampled-piano) 
+    (s/cs80lead :decay 1 :amp 1 :freq (/ x 100)) 
     (draw-circles)))
 
 (defn setup []
